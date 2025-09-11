@@ -2,7 +2,7 @@
 ## 1. Oracle VirtualBox Download
 1. Windows 환경에서 VM을 실행할 Oracle VirtualBox를 다운로드 한다.
 
-  주소 : https://www.virtualbox.org/wiki/Downloads
+※  주소 : https://www.virtualbox.org/wiki/Downloads
 
 2. 접속한 URL에서 Windows hosts를 다운받으면 된다. 
 
@@ -29,5 +29,18 @@
 
 <img width="882" height="605" alt="image" src="https://github.com/user-attachments/assets/cc7e9ae8-0b4d-4bd0-b8e2-5af02e6611fc" />
 
+## 3. PuTTy로 접속하기 
+1. PuTTy 실행 
 
+<img width="589" height="536" alt="image" src="https://github.com/user-attachments/assets/4700425d-fd60-4d32-a2bd-b28a3e630746" />
 
+2. HostName 입력란에 VM 커널에서 사용하는 UserName과 IP Host IP 주소 입력 
+ex) worknode1@127.0.0.1
+
+<img width="593" height="535" alt="image" src="https://github.com/user-attachments/assets/7983f32b-0305-461d-8974-1225f9ccea2d" />
+
+3. 포트포워딩에서 설정했던 Port번호 입력
+
+4. PuTTy 접속화면
+
+<img width="656" height="412" alt="image" src="https://github.com/user-attachments/assets/7bd9401b-2563-42c7-b7bd-549901f17f87" />
