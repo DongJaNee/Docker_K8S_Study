@@ -21,3 +21,11 @@
 
 ### User namespace
 - 사용자 및 그룹 ID를 격리
+
+---
+
+```
+docker inspect [container ID] | grep pid    # PID 얻기
+sudo lsns -p [PID]    # namespace 확인
+```
+
