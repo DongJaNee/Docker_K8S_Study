@@ -44,3 +44,27 @@ ex) worknode1@127.0.0.1
 4. PuTTy 접속화면
 
 <img width="656" height="412" alt="image" src="https://github.com/user-attachments/assets/7bd9401b-2563-42c7-b7bd-549901f17f87" />
+
+---
+## Ubuntu에서 설치하는 방법
+```
+# 필수 도구/헤더
+sudo apt-get install -y build-essential dkms linux-headers-$(uname -r) \
+                        apt-transport-https ca-certificates curl gnupg
+
+# Oracle 키/리포지토리 추가
+curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | \
+  sudo gpg --dearmor -o /usr/share/keyrings/oracle-vbox-2016.gpg
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-vbox-2016.gpg] \
+https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | \
+  sudo tee /etc/apt/sources.list.d/virtualbox.list
+
+sudo apt-get update
+sudo apt-get install -y virtualbox-7.0   # 버전 표기는 환경에 따라 7.0.x
+
+    사용자 권한 추가:
+
+sudo usermod -aG vboxusers $USER
+# 로그아웃/재로그인 후 적용
+```
