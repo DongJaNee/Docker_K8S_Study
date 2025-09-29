@@ -45,6 +45,8 @@ docker service rm web-server     # service 삭제 방법 (추가적인 것)
 docker service scale web-server=5     # 리플리카셋 생성
 
 docker service ps web-server     # 복제본 확인
+
+docker service scale web-server=10     # 리플리카셋을 10개로 변경하고싶으면 
 ```
 
 
