@@ -1,4 +1,4 @@
-## Master노드와 Worker노드에 각각 라벨 설정 
+<img width="1097" height="234" alt="image" src="https://github.com/user-attachments/assets/1226d8eb-ee91-47cc-bb2f-5b478a950f4c" />## Master노드와 Worker노드에 각각 라벨 설정 
 ```
 kubectl label node <name> type=cpu      //서버가 CPU 특화 되어있다는 의미의 라벨 (마스터 노드 기준으로 라벨 설정)
 kubectl describe node <name> | less
@@ -76,6 +76,9 @@ kubectl apply -f web-server-deploy.yaml
 watch -n 0.1 kubectl get pods -o wide
 ```
 
+<img width="431" height="668" alt="image" src="https://github.com/user-attachments/assets/c7421aff-6b90-49f8-a982-1318f7f6c1f4" />
+
+
 ### CPU,GPU 중심적인 서버 type=cou 또는 gpu에 pod 생성 
 ```
 nano web-server-deploy.yaml
@@ -98,6 +101,23 @@ nano web-server-deploy.yaml
                     - cpu
                     - gpu
 ```
+
+<img width="1075" height="253" alt="image" src="https://github.com/user-attachments/assets/929dde0d-4662-47ad-86c5-997c95e28a02" />
+
+
+
+
+### CPU 중심으로 돌아갈 때
+
+<img width="1097" height="234" alt="image" src="https://github.com/user-attachments/assets/e57bb156-50a2-410f-b9d5-56796bf250ba" />
+
+
+### GPU 중심으로 돌아갈 때 
+
+<img width="1088" height="232" alt="image" src="https://github.com/user-attachments/assets/81fd0b65-30fa-4ded-a27d-d4af34425879" />
+
+
+
 ```
 kubectl apply -y web-server-deploy.yaml            //적용 
 watch -n 0.1 kubectl get pods -o wide              //확인 
