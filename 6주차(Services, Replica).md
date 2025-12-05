@@ -83,7 +83,7 @@ kubectl get pods
 
 <img width="642" height="127" alt="image" src="https://github.com/user-attachments/assets/e69425e9-bd32-4194-a9f6-16b7dc4344d2" />
 
-### Pod 의 컨테이ㅏ너 내부로 접속 후 확인하기
+### Pod 의 컨테이너 내부로 접속 후 확인하기
 ```
 kubectl exec -it web-server -- bash
 ps -ef | grep node
