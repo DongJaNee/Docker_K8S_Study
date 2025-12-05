@@ -102,6 +102,11 @@ nano web-server-deploy.yaml
                     - gpu
 ```
 
+```
+kubectl apply -y web-server-deploy.yaml            //적용 
+watch -n 0.1 kubectl get pods -o wide              //확인 
+```
+
 <img width="1075" height="253" alt="image" src="https://github.com/user-attachments/assets/929dde0d-4662-47ad-86c5-997c95e28a02" />
 
 
@@ -118,8 +123,4 @@ nano web-server-deploy.yaml
 
 
 
-```
-kubectl apply -y web-server-deploy.yaml            //적용 
-watch -n 0.1 kubectl get pods -o wide              //확인 
-```
 
