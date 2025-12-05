@@ -1,4 +1,4 @@
-<img width="1097" height="234" alt="image" src="https://github.com/user-attachments/assets/1226d8eb-ee91-47cc-bb2f-5b478a950f4c" />## Master노드와 Worker노드에 각각 라벨 설정 
+## Master노드와 Worker노드에 각각 라벨 설정 
 ```
 kubectl label node <name> type=cpu      //서버가 CPU 특화 되어있다는 의미의 라벨 (마스터 노드 기준으로 라벨 설정)
 kubectl describe node <name> | less
