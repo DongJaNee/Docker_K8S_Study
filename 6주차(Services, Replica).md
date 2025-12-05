@@ -270,3 +270,8 @@ sudo kill -9 <PID>
 <img width="939" height="365" alt="image" src="https://github.com/user-attachments/assets/cdf60bbe-76f2-4f4c-9741-6ece3739b135" />
 
 
+<img width="654" height="412" alt="image" src="https://github.com/user-attachments/assets/11beedad-5453-4c9c-a82f-92ac8ee48ef8" />
+
+
+<img width="938" height="348" alt="image" src="https://github.com/user-attachments/assets/12c40a18-892f-4046-94f4-f576f677a0a0" />
+- ERROR가 떳다가 다시 살아나는 것을 볼 수 있다.
