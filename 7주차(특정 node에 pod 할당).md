@@ -76,3 +76,30 @@ kubectl apply -f web-server-deploy.yaml
 watch -n 0.1 kubectl get pods -o wide
 ```
 
+### CPU,GPU 중심적인 서버 type=cou 또는 gpu에 pod 생성 
+```
+nano web-server-deploy.yaml
+
+    spec:
+      containers:
+        - name: web-server
+          image: reallinux/web-server:1
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                 - key: type
+                   operator: In
+                   values:
+                    - cpu
+                    - gpu
+```
+```
+kubectl apply -y web-server-deploy.yaml            //적용 
+watch -n 0.1 kubectl get pods -o wide              //확인 
+```
+
