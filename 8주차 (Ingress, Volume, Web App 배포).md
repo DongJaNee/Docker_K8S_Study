@@ -89,3 +89,8 @@ $ kubectl delete -f web-server-ingress.yaml
 
 <img width="744" height="290" alt="image" src="https://github.com/user-attachments/assets/a84cf4f3-e435-44ca-9c8b-4154b514e45a" />
 
+---
+ 
+ <img width="446" height="214" alt="image" src="https://github.com/user-attachments/assets/182a2d27-f9e8-40a0-a0d9-408d3a130441" />
+
+ - **로드밸런싱된 것을 확인할 수 있다.**
