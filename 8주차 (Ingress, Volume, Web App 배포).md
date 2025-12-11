@@ -233,3 +233,49 @@ $ kubectl delete -f web-server-ingress2.yaml
 
 <img width="489" height="310" alt="image" src="https://github.com/user-attachments/assets/73ae1a63-1afc-4ab0-8a67-a052578a9b37" />
 
+---
+## DNS Test 
+```
+# yaml 파일 수정하기
+# 예시 도메인 : 192-168-0-167.nip.io            //사용하고있는 local 주소를 기입해야함.
+$ kubectl delete -f web-server-ingress2.yaml         //기존에 사용중인 ingress2 삭제
+$ nano web-server-ingress.yaml
+```
+
+
+
+<img width="350" height="206" alt="image" src="https://github.com/user-attachments/assets/1e86ff97-2fd5-4a21-bb0c-0647731586b1" />
+
+```
+# Spec 부분에 있는 rules의 host 부분에 도메인을 입력
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: 192-168-0-167.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-server
+                port:
+                  number: 8080
+```
+
+```
+# 오브젝트 스펙 yaml 적용
+$ kubectl apply -f web-server-ingress.yaml
+
+# 웹 요청 테스트
+curl 192-168-0-167.nip.io
+```
+
+
+<img width="471" height="165" alt="image" src="https://github.com/user-attachments/assets/1ba62bd8-4da4-4427-8da9-4c9c24cb5dd8" />
+
