@@ -132,4 +132,90 @@ kill -9 [pid]
 
 ```
 
+```
+kubectl get pods -o wide
+kubectl exec -it [pod 명] -- bash
+```
+
+```
+cd /host/var/log
+ls
+```
+
 <img width="1610" height="225" alt="image" src="https://github.com/user-attachments/assets/90c7b75b-1a45-44c2-9a3a-ae94b73769ce" />
+
+
+
+<img width="939" height="385" alt="image" src="https://github.com/user-attachments/assets/2cce75a3-34f4-4c16-a4ce-6ff1476393ab" />
+
+- kill -9으로 죽여도 test.log가 살아있는 것을 볼 수 있다.
+
+---
+## Volume 생성 hostpath 유형 
+```
+nano web-server-volume.yaml 
+```
+
+```
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server-rs
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: webapp
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: webapp
+        tier: app
+    spec:
+      containers:
+        - name: web-server
+          image: reallinux/web-server:2
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: varlog
+              mountPath: /host/var/log
+      volumes:
+        - name: varlog
+          hostPath:                        // 기존 empty 에서 이 부분이 달라진다.
+              path: /var/log               // 기존 empty 에서 이 부분이 달라진다.
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-server
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 80
+      protocol: TCP
+      nodePort: 31000
+  selector:
+      app: webapp
+      tier: app
+```
+
+#### 적용 
+```
+kubectl apply -f web-server-volume.yaml
+kubectl get pods
+```
+
+```
+# web-server pod 내부에서 파일 확인하기
+kubectl exec -it "web-server pod 명" -- bash
+
+cd /host/var/log
+ls
+touch test.log
+exit
+```
