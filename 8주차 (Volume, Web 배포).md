@@ -125,6 +125,11 @@ ls
 - 다른 Pod에서도 test.log가 삭제되지 않는 것을 볼 수 있다.
 
 #### kill -9으로 강제종료 후 확인 
+```
+watch -n 0.1 kubectl get pods -o wide
+ps -ef | grep node
+kill -9 [pid]
 
+```
 
-
+<img width="1610" height="225" alt="image" src="https://github.com/user-attachments/assets/90c7b75b-1a45-44c2-9a3a-ae94b73769ce" />
